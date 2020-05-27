@@ -1,11 +1,16 @@
-;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
-;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
+;;This file does not require executing 'doom sync' after modifiying.
+;; This is my custom configuration file for Doom Emacs.
+;; ~/.doom.d/config.el
+;;
+;;     ___
+;;    /   \ ___  _ __   _ __   _   _  ___   /\/\
+;;   / /\ // _ \| '_ \ | '_ \ | | | |/ __| /    \
+;;  / /_//|  __/| | | || | | || |_| |\__ \/ /\/\ \
+;; /___,'  \___||_| |_||_| |_| \__, ||___/\/    \/
+;;                             |___/
+;; Dennys M. (bardsnight)
+;; https://bardsnight.github.io/dennysm/
+;;
 (setq user-full-name "Dennys Marcos"
       user-mail-address "kardeenx@gmail.com")
 
@@ -32,21 +37,11 @@
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
 (setq display-line-numbers-type t)
-
 ;;
-;;  ||====\\
-;;  ||     \\
-;;  ||     //
-;;  ||    //
-;;  ||    \\
-;;  ||     \\
-;;  ||      \\
-;;  ||      //
-;;  ||==== //
 ;;
 ;; Sets projectile search by default
 (setq org-directory "~/.myorg/")
-projectile-project-search-path '("~dev/")
+;;projectile-project-search-path '("~dev/")
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
