@@ -10,39 +10,70 @@
 ;;                             |___/
 ;; Dennys M. (bardsnight)
 ;; https://bardsnight.github.io/dennysm/
-;;
+
+
 (setq user-full-name "Dennys Marcos"
       user-mail-address "kardeenx@gmail.com")
 
-;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
-;; are the three important ones:
-;;
-;; + `doom-font'
-;; + `doom-variable-pitch-font'
-;; + `doom-big-font' -- used for `doom-big-font-mode'; use this for
-;;   presentations or streaming.
-;;
-;; They all accept either a font-spec, font string ("Input Mono-12"), or xlfd
-;; font string. You generally only need these two:
-(setq doom-font (font-spec :family "FantasqueSansMono NF" :size 16))
+;; Doom appearance configuration
+(setq
+    doom-font (font-spec :family "FantasqueSansMono NF" :size 18)
+    doom-big-font (font-spec :family "FantasqueSansMono NF" :size 36)
+    projectile-project-search-path '("~/dev/") ;; Default projects folder for projectile to search on
+    doom-theme 'doom-one ;; Sets up my chosen theme
+    display-line-numbers-type t ;; I have no clue maybe i'll search later
+    )
 
+
+(use-package! org-super-agenda
+  :after org-agenda
+  :init
+  org-super-agenda-groups '((:name "Today"
+                             :time-grid t
+                             :scheduled today)
+                            (:name "Due today"
+                             :deadline today)
+                            (:name "Important"
+                             :priority "A")
+                            (:name "Overdue"
+                             :deadline past)
+                            (:name "Due soon"
+                             :deadline future)
+                            (:name "Big Outcomes"
+                             :tag "bo"))
+  :config
+  )
+
+;; Org-mode settings
+(after! org
+  (setq org-fancy-priorities-list '("⚡" "⬆" "⬇" "☕")
+        org-directory "~/.myorg/"
+        org-bullets-bullet-list '("·:")
+
+        org-log-done 'time
+        org-ellipsis " ▾ "
+        )
+  )
+
+
+(add-to-list 'default-frame-alist '(fullscreen . maximized)) ;; Initializes emacs maximized
+;;
+;;(setq display-line-numbers-type t)
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-one)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 
+;;(setq doom-theme 'doom-one)
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
 ;;
 ;;
 ;; Sets projectile search by default
-(setq org-directory "~/.myorg/")
-;;projectile-project-search-path '("~dev/")
-
+;;(setq org-directory "~/.myorg/")
+;;projectile-project-search-path '("~/dev/")
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
 ;; - `load!' for loading external *.el files relative to this one
@@ -64,4 +95,3 @@
 ;; If you use `org' and don't want your org files in the default location below,; If you use `org' and don't want your org files in the default location below,
 ;;
 ;; Make doom initialize maximized:
-(add-to-list 'default-frame-alist '(fullscreen . maximized))

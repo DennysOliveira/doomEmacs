@@ -1,3 +1,6 @@
+(package! org-super-agenda)
+(package! org-fancy-priorities)
+
 ;; -*- no-byte-compile: t; -*-
 ;;; $DOOMDIR/packages.el
 
